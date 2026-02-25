@@ -1,0 +1,389 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!--
+    INSTRUÇÕES RÁPIDAS:
+    1) Altere o telefone em WHATSAPP_PHONE no arquivo js/script.js (formato: 55DDDNUMERO, só números).
+    2) Altere as mensagens em WHATSAPP_MESSAGES no arquivo js/script.js.
+    3) Troque a logo em: imagens/logo-luare.png
+    4) Troque Instagram em: https://instagram.com/seuinstagram
+    5) Substitua imagens da galeria (placeholders) pelos seus arquivos.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luare Recreações | Recreação Infantil, Corporativa e Hotéis/Resorts</title>
+  <link rel="icon" type="image/png" href="imagens/logo-luare.png" />
+  <link rel="apple-touch-icon" href="imagens/logo-luare.png" />
+  <meta name="description" content="Mais de 10 anos levando diversão com segurança e profissionalismo em Londrina e região, além de hotéis e resorts pelo Brasil." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topo" id="topo">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Página inicial Luare Recreações">
+        <img src="imagens/logo-luare.png" alt="Logo da Luare Recreações" loading="lazy" />
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuPrincipal">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="menu" id="menuPrincipal">
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn-principal wa-link" data-wa="infantil" href="#">Pedir orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="selo"><i class="bi bi-shield-check"></i> 10+ anos de experiência com segurança e organização</span>
+          <h1>Recreação que transforma eventos em memórias incríveis</h1>
+          <p>Atendemos festas infantis, eventos corporativos e operações em hotéis e resorts. Equipe preparada, atividades por perfil do público e atendimento rápido pelo WhatsApp.</p>
+          <div class="hero-acoes">
+            <a class="btn btn-principal wa-link" data-wa="infantil" href="#"><i class="bi bi-whatsapp"></i> Pedir orçamento no WhatsApp</a>
+            <a class="btn btn-secundario" href="#servicos">Ver serviços</a>
+          </div>
+        </div>
+
+        <div class="hero-box reveal">
+          <img src="imagens/piquenique.jpeg" alt="Grupo de crianças e equipe de recreação em atividade ao ar livre" loading="lazy" />
+          <div class="hero-mini">
+            <div>Infantil</div>
+            <div>Corporativo</div>
+            <div>Hotéis e<br>Resorts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section confianca" id="confianca">
+      <div class="container">
+        <h2 class="section-title reveal">Confiança na prática, sem complicação</h2>
+        <p class="section-subtitle reveal">Um processo claro, equipe preparada e execução organizada para você contratar com tranquilidade.</p>
+
+        <div class="cred-v2 reveal">
+          <div class="cred-faixa">
+            <article class="cred-kpi">
+              <span class="cred-icone"><i class="bi bi-award"></i></span>
+              <div>
+                <strong><span class="contador" data-target="10">0</span>+</strong>
+                <span>Anos de atuação</span>
+              </div>
+            </article>
+            <article class="cred-kpi">
+              <span class="cred-icone"><i class="bi bi-magic"></i></span>
+              <div>
+                <strong><span class="contador" data-target="100">0</span>%</strong>
+                <span>Eventos personalizados</span>
+              </div>
+            </article>
+            <article class="cred-kpi">
+              <span class="cred-icone"><i class="bi bi-clock-history"></i></span>
+              <div>
+                <strong>até <span class="contador" data-target="24">0</span>h</strong>
+                <span>Primeiro retorno no WhatsApp</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="cred-box">
+            <h3>O que você pode esperar da Luare</h3>
+            <ul class="cred-checks">
+              <li><i class="bi bi-check-circle-fill"></i> Briefing rápido e objetivo pelo WhatsApp.</li>
+              <li><i class="bi bi-check-circle-fill"></i> Atividades adequadas ao perfil e faixa etária.</li>
+              <li><i class="bi bi-check-circle-fill"></i> Equipe treinada para infantil, corporativo e hotelaria.</li>
+              <li><i class="bi bi-check-circle-fill"></i> Execução pontual com foco em segurança e experiência.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <h2 class="section-title reveal">Serviços para diferentes tipos de evento</h2>
+        <p class="section-subtitle reveal">Atendimento personalizado para seu contexto, com planejamento simples e execução completa.</p>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="icone-card"><i class="bi bi-balloon-heart"></i></div>
+            <h3>Eventos Infantis</h3>
+            <ul>
+              <li>Recreação e brincadeiras guiadas</li>
+              <li>Monitores treinados</li>
+              <li>Dinâmicas por faixa etária</li>
+              <li>Opções temáticas</li>
+            </ul>
+            <a class="btn btn-principal wa-link" data-wa="infantil" href="#"><i class="bi bi-whatsapp"></i> Orçamento infantil</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="icone-card"><i class="bi bi-people"></i></div>
+            <h3>Eventos Corporativos</h3>
+            <ul>
+              <li>Dinâmicas de integração</li>
+              <li>Ativações e entretenimento</li>
+              <li>Suporte completo em eventos</li>
+            </ul>
+            <a class="btn btn-principal wa-link" data-wa="corporativo" href="#"><i class="bi bi-whatsapp"></i> Orçamento corporativo</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="icone-card"><i class="bi bi-building"></i></div>
+            <h3>Hotéis e Resorts</h3>
+            <ul>
+              <li>Programação recreativa</li>
+              <li>Atuação em temporadas e eventos</li>
+              <li>Equipe preparada para alto volume</li>
+            </ul>
+            <a class="btn btn-principal wa-link" data-wa="resort" href="#"><i class="bi bi-whatsapp"></i> Solicitar proposta</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section passos" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title reveal">Como funciona em 3 passos</h2>
+        <p class="section-subtitle reveal">Processo rápido para você resolver tudo sem complicação.</p>
+
+        <div class="passo-grid">
+          <article class="passo reveal">
+            <div class="num">1</div>
+            <h3>Você chama no WhatsApp</h3>
+            <p>Envia data, local e perfil do evento para análise inicial.</p>
+          </article>
+          <article class="passo reveal">
+            <div class="num">2</div>
+            <h3>Alinhamos os detalhes</h3>
+            <p>Definimos atividades, equipe e formato ideal para seu público.</p>
+          </article>
+          <article class="passo reveal">
+            <div class="num">3</div>
+            <h3>Entregamos com excelência</h3>
+            <p>Execução profissional com foco em segurança, diversão e organização.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <h2 class="section-title reveal">Quem contrata, recomenda</h2>
+        <p class="section-subtitle reveal">Depoimentos de clientes sobre atendimento, segurança e resultado.</p>
+
+        <div class="depoimentos-shell reveal">
+          <article class="depo-card ativo">
+            <div class="depo-topo">
+              <span class="depo-estrelas">★★★★★</span>
+              <span class="depo-tag">Festa Infantil</span>
+            </div>
+            <p>"Equipe extremamente atenciosa, crianças engajadas do início ao fim. Organização impecável e muita tranquilidade para os pais."</p>
+            <div class="depo-autor">
+              <span class="depo-avatar">MS</span>
+              <div>
+                <strong>Mariana S.</strong>
+                <small>Mãe de cliente em Londrina</small>
+              </div>
+            </div>
+          </article>
+          <article class="depo-card">
+            <div class="depo-topo">
+              <span class="depo-estrelas">★★★★★</span>
+              <span class="depo-tag">Corporativo</span>
+            </div>
+            <p>"No evento da empresa, a Luare entregou dinâmica e integração de verdade. Pontualidade e profissionalismo acima da média."</p>
+            <div class="depo-autor">
+              <span class="depo-avatar">RT</span>
+              <div>
+                <strong>Rafael T.</strong>
+                <small>RH corporativo</small>
+              </div>
+            </div>
+          </article>
+          <article class="depo-card">
+            <div class="depo-topo">
+              <span class="depo-estrelas">★★★★★</span>
+              <span class="depo-tag">Hotelaria</span>
+            </div>
+            <p>"Operação em temporada no hotel com alto volume e excelente condução da equipe. Recomendamos para novos projetos."</p>
+            <div class="depo-autor">
+              <span class="depo-avatar">GL</span>
+              <div>
+                <strong>Gerência de Lazer</strong>
+                <small>Hotel parceiro</small>
+              </div>
+            </div>
+          </article>
+          <div class="depo-nav">
+            <button id="prevDepoimento" aria-label="Depoimento anterior"><i class="bi bi-chevron-left"></i></button>
+            <div class="depo-dots" aria-label="Controle de depoimentos">
+              <button class="depo-dot ativo" data-slide="0" aria-label="Ir para depoimento 1"></button>
+              <button class="depo-dot" data-slide="1" aria-label="Ir para depoimento 2"></button>
+              <button class="depo-dot" data-slide="2" aria-label="Ir para depoimento 3"></button>
+            </div>
+            <button id="nextDepoimento" aria-label="Próximo depoimento"><i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <h2 class="section-title reveal">Galeria de momentos</h2>
+        <p class="section-subtitle reveal">Registros reais da equipe Luare em diferentes eventos.</p>
+
+        <div class="galeria-grid">
+          <figure class="galeria-item reveal">
+            <img src="imagens/criancas2.jpeg" alt="Crianças reunidas em atividade com recreador em ambiente interno" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/patrula.jég.jfif" alt="Grupo de crianças com equipe de recreação em área externa de hotel" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/bichosujao.jpeg" alt="Crianças fantasiadas e caracterizadas em brincadeira temática ao ar livre" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/bichosujao1.jpeg" alt="Grupo de crianças em dinâmica temática com recreadores em resort" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/criancas.jpeg" alt="Recreador com crianças em selfie durante atividade noturna" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/explicandobrin.jpeg" alt="Monitor explicando dinâmica para crianças sentadas em roda" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/piscinapalmas.jpeg" alt="Equipe de recreação e crianças em piscina com brinquedo aquático" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/praiapalmas.jpeg" alt="Crianças e recreadora em atividade na praia" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/slime.jpeg" alt="Crianças fazendo atividade de slime ao ar livre" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/balinhas.jpeg" alt="Crianças em confraternização com equipe de recreação em área externa" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/festasdascores.jpeg" alt="Grupo participando de dinâmica com pós coloridos em atividade ao ar livre" loading="lazy" />
+          </figure>
+          <figure class="galeria-item reveal">
+            <img src="imagens/criancascomcoelhofantasiado.jpeg" alt="Crianças em evento noturno com recreador fantasiado de coelho" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2 class="section-title reveal">Perguntas frequentes</h2>
+        <p class="section-subtitle reveal">Respostas diretas sobre segurança, equipe e orçamento.</p>
+
+        <div class="faq-list">
+          <article class="faq-item reveal">
+            <button class="faq-pergunta">Como vocês garantem a segurança das crianças? <i class="bi bi-plus-lg"></i></button>
+            <div class="faq-resposta">Nossa equipe é treinada, as atividades são adequadas por faixa etária e todo o planejamento considera espaço, fluxo e supervisão constante.</div>
+          </article>
+          <article class="faq-item reveal">
+            <button class="faq-pergunta">Quanto tempo leva para receber orçamento? <i class="bi bi-plus-lg"></i></button>
+            <div class="faq-resposta">Pelo WhatsApp, o retorno inicial é rápido. Com data, local e perfil do evento, conseguimos montar a proposta com agilidade.</div>
+          </article>
+          <article class="faq-item reveal">
+            <button class="faq-pergunta">Atendem eventos personalizados? <i class="bi bi-plus-lg"></i></button>
+            <div class="faq-resposta">Sim. Adaptamos as atividades para objetivo, público e formato de cada evento, do infantil ao corporativo e hotelaria.</div>
+          </article>
+          <article class="faq-item reveal">
+            <button class="faq-pergunta">Atendem só Londrina? <i class="bi bi-plus-lg"></i></button>
+            <div class="faq-resposta">Atuação principal em Londrina e região, com projetos em hotéis e resorts pelo Brasil conforme cronograma e necessidade.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contato" id="contato">
+      <div class="container contato-grid">
+        <div class="reveal contato-info">
+          <h2 class="section-title">Fale com a equipe agora</h2>
+          <p class="section-subtitle">Orçamento rápido no WhatsApp para eventos infantis, corporativos e hotelaria.</p>
+
+          <div class="contato-card">
+            <p><i class="bi bi-geo-alt-fill"></i> <strong>Região atendida:</strong> Londrina e região, com projetos pelo Brasil.</p>
+            <p><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong> <a class="wa-link" data-wa="infantil" href="#"><strong>+55 43 8809-8800</strong></a></p>
+            <p><i class="bi bi-instagram"></i> <strong>Instagram:</strong> <a href="https://instagram.com/luarerecreacoes" target="_blank" rel="noopener noreferrer"><strong>@luarerecreacoes</strong></a></p>
+          </div>
+
+          <div class="contato-acoes">
+            <a class="btn btn-principal wa-link" data-wa="infantil" href="#"><i class="bi bi-whatsapp"></i> Falar com a equipe</a>
+            <a class="btn btn-secundario" href="https://instagram.com/luarerecreacoes" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i> Ver Instagram</a>
+          </div>
+        </div>
+
+        <form class="form" action="#" method="post">
+          <h3 style="margin-top:0; color:#13488a;">Pré-atendimento rápido</h3>
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome" />
+          <label for="tipo">Tipo de evento</label>
+          <select id="tipo" name="tipo">
+            <option>Infantil</option>
+            <option>Corporativo</option>
+            <option>Hotel/Resort</option>
+          </select>
+          <label for="mensagem">Resumo do evento</label>
+          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Data, local e quantidade de participantes"></textarea>
+          <button type="button" id="preAtendimentoBtn" class="btn btn-principal"><i class="bi bi-whatsapp"></i> Enviar pelo WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-grid">
+      <div class="rodape-brand">
+        <strong>Luare Recreações</strong>
+        <p>Mais de 10 anos levando diversão com segurança, organização e experiências memoráveis.</p>
+      </div>
+      <div class="rodape-coluna">
+        <h4>Navegação</h4>
+        <div class="rodape-links">
+          <a href="#servicos">Serviços</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="rodape-coluna">
+        <h4>Atendimento</h4>
+        <div class="rodape-links">
+          <a class="wa-link" data-wa="infantil" href="#">WhatsApp: +55 43 8809-8800</a>
+          <a href="https://instagram.com/luarerecreacoes" target="_blank" rel="noopener noreferrer">Instagram: @luarerecreacoes</a>
+          <a href="#contato">Londrina e região + Brasil</a>
+        </div>
+      </div>
+      <div class="rodape-cta">
+        <a class="btn btn-principal wa-link" data-wa="corporativo" href="#"><i class="bi bi-whatsapp"></i> Pedir orçamento</a>
+      </div>
+    </div>
+    <div class="container rodape-base">
+      <small>Luare Recreações - Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <a class="whats-flutuante wa-link" data-wa="infantil" href="#" aria-label="Falar no WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
