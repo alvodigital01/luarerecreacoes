@@ -209,3 +209,80 @@ if (preAtendimentoBtn && campoNome && campoTipo && campoMensagem) {
   });
 }
 
+const elementosParallax = [
+  { el: document.querySelector(".hero"), speed: 0.11 },
+  { el: document.querySelector(".selo"), speed: 0.17 }
+].filter(item => item.el);
+
+function aplicaParallax() {
+  if (reducedMotion || !elementosParallax.length) return;
+  const y = window.scrollY;
+  elementosParallax.forEach(({ el, speed }) => {
+    const deslocamento = Math.max(Math.min(y * speed, 36), -36);
+    el.style.transform = `translateY(${deslocamento}px)`;
+  });
+}
+
+let parallaxTicking = false;
+window.addEventListener("scroll", () => {
+  if (parallaxTicking) return;
+  parallaxTicking = true;
+  requestAnimationFrame(() => {
+    aplicaParallax();
+    parallaxTicking = false;
+  });
+});
+aplicaParallax();
+
+const secoes = Array.from(document.querySelectorAll("main section[id]"));
+const linksMenu = Array.from(document.querySelectorAll(".menu a[href^='#']"));
+
+function atualizarSecaoAtiva() {
+  if (!secoes.length || !linksMenu.length) return;
+  const marcador = window.scrollY + 120;
+  let secaoAtual = secoes[0].id;
+
+  secoes.forEach(secao => {
+    if (marcador >= secao.offsetTop) secaoAtual = secao.id;
+  });
+
+  linksMenu.forEach(link => {
+    const ativo = link.getAttribute("href") === `#${secaoAtual}`;
+    link.classList.toggle("ativo", ativo);
+  });
+}
+
+atualizarSecaoAtiva();
+window.addEventListener("scroll", atualizarSecaoAtiva);
+window.addEventListener("resize", atualizarSecaoAtiva);
+
+const elementosGlow = document.querySelectorAll(".card, .passo, .faq-item, .galeria-item");
+elementosGlow.forEach(el => {
+  el.addEventListener("pointermove", ev => {
+    if (reducedMotion) return;
+    const rect = el.getBoundingClientRect();
+    const x = ((ev.clientX - rect.left) / rect.width) * 100;
+    const y = ((ev.clientY - rect.top) / rect.height) * 100;
+    el.style.setProperty("--mx", `${x.toFixed(2)}%`);
+    el.style.setProperty("--my", `${y.toFixed(2)}%`);
+    el.classList.add("com-glow");
+  });
+
+  el.addEventListener("pointerleave", () => {
+    el.classList.remove("com-glow");
+  });
+});
+
+if (!reducedMotion && "IntersectionObserver" in window) {
+  const observerProfundo = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in-view");
+      observerProfundo.unobserve(entry.target);
+    });
+  }, { threshold: 0.22 });
+
+  document.querySelectorAll(".card, .passo, .galeria-item, .faq-item, .contato-card, .form")
+    .forEach(el => observerProfundo.observe(el));
+}
+
