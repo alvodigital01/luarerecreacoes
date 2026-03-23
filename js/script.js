@@ -1,8 +1,8 @@
-﻿const WHATSAPP_PHONE = "554388098800";
+const WHATSAPP_PHONE = "554388098800";
 const WHATSAPP_MESSAGES = {
-  infantil: "Olá! Quero um orçamento para recreação em um evento infantil. Data, local e quantidade de crianças: ",
-  corporativo: "Olá! Quero um orçamento para um evento corporativo. Data, local e número de participantes: ",
-  resort: "Olá! Gostaria de uma proposta para recreação em hotel/resort. Cidade, período e estrutura: "
+  infantil: "OlÃƒÂ¡! Quero um orÃƒÂ§amento para recreaÃƒÂ§ÃƒÂ£o em um evento infantil. Data, local e quantidade de crianÃƒÂ§as: ",
+  corporativo: "OlÃƒÂ¡! Quero um orÃƒÂ§amento para um evento corporativo. Data, local e nÃƒÂºmero de participantes: ",
+  resort: "OlÃƒÂ¡! Gostaria de uma proposta para recreaÃƒÂ§ÃƒÂ£o em hotel/resort. Cidade, perÃƒÂ­odo e estrutura: "
 };
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -185,23 +185,20 @@ document.querySelectorAll(".faq-pergunta").forEach(botao => {
 
 const preAtendimentoBtn = document.getElementById("preAtendimentoBtn");
 const campoNome = document.getElementById("nome");
-const campoTipo = document.getElementById("tipo");
+const campoIdade = document.getElementById("idade");
 const campoMensagem = document.getElementById("mensagem");
 
-if (preAtendimentoBtn && campoNome && campoTipo && campoMensagem) {
+if (preAtendimentoBtn && campoNome && campoIdade && campoMensagem) {
   preAtendimentoBtn.addEventListener("click", () => {
-    const nome = campoNome.value.trim() || "Não informado";
-    const tipoSelecionado = campoTipo.value.trim();
-    const resumo = campoMensagem.value.trim() || "Não informado";
-
-    let tipoKey = "infantil";
-    if (tipoSelecionado === "Corporativo") tipoKey = "corporativo";
-    if (tipoSelecionado === "Hotel/Resort") tipoKey = "resort";
+    const nome = campoNome.value.trim() || "N\u00e3o informado";
+    const idade = campoIdade.value.trim() || "N\u00e3o informado";
+    const resumo = campoMensagem.value.trim() || "N\u00e3o informado";
 
     const texto = [
+      "Ol\u00e1! Quero um or\u00e7amento para recrea\u00e7\u00e3o infantil.",
       `Nome: ${nome}`,
-      `Tipo de evento: ${tipoSelecionado || "Não informado"}`,
-      `Resumo: ${resumo}`
+      `Idade das crian\u00e7as: ${idade}`,
+      `Detalhes da festa: ${resumo}`
     ].join("\n");
 
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(texto)}`;
@@ -209,18 +206,14 @@ if (preAtendimentoBtn && campoNome && campoTipo && campoMensagem) {
   });
 }
 
-const elementosParallax = [
-  { el: document.querySelector(".hero"), speed: 0.11 },
-  { el: document.querySelector(".selo"), speed: 0.17 }
-].filter(item => item.el);
+const heroMoldura = document.querySelector(".hero-moldura");
 
 function aplicaParallax() {
-  if (reducedMotion || !elementosParallax.length) return;
-  const y = window.scrollY;
-  elementosParallax.forEach(({ el, speed }) => {
-    const deslocamento = Math.max(Math.min(y * speed, 36), -36);
-    el.style.transform = `translateY(${deslocamento}px)`;
-  });
+  if (reducedMotion || !heroMoldura) return;
+  const y = Math.min(window.scrollY, 220);
+  const deslocamentoImagem = Math.min(y * 0.12, 18);
+
+  heroMoldura.style.transform = `translateY(${deslocamentoImagem.toFixed(2)}px)`;
 }
 
 let parallaxTicking = false;
@@ -285,4 +278,7 @@ if (!reducedMotion && "IntersectionObserver" in window) {
   document.querySelectorAll(".card, .passo, .galeria-item, .faq-item, .contato-card, .form")
     .forEach(el => observerProfundo.observe(el));
 }
+
+
+
 
