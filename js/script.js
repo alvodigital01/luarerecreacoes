@@ -275,7 +275,8 @@ if (!reducedMotion && "IntersectionObserver" in window) {
     });
   }, { threshold: 0.22 });
 
-  document.querySelectorAll(".card, .passo, .galeria-item, .faq-item, .contato-card, .form")
+  // Evita animar duas vezes elementos que ja usam `.reveal`.
+  document.querySelectorAll(".card:not(.reveal), .passo:not(.reveal), .galeria-item:not(.reveal), .faq-item:not(.reveal), .contato-card:not(.reveal), .form:not(.reveal)")
     .forEach(el => observerProfundo.observe(el));
 }
 
