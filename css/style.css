@@ -2845,3 +2845,73 @@ main {
     border-radius: 18px;
   }
 }
+/* Fix visual: faixa de oficinas */
+.oficinas-box {
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 18px !important;
+  align-items: center !important;
+  border-radius: 24px !important;
+  padding: 24px !important;
+}
+
+.oficinas-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+}
+
+.oficinas-lista {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.oficinas-lista span {
+  display: grid !important;
+  place-items: center !important;
+  min-height: 84px !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  border: 1px solid rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 10px 18px rgba(10, 58, 130, 0.08) !important;
+}
+
+@media (max-width: 980px) {
+  .oficinas-box {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .oficinas-box {
+    padding: 18px !important;
+  }
+
+  .oficinas-lista span {
+    min-height: 72px !important;
+  }
+}
+
+/* Footer alinhado e com cor da secao contato */
+.rodape {
+  background: linear-gradient(150deg, #0b3f91 0%, #1263b8 42%, #1ea7e1 100%) !important;
+}
+
+.rodape-base {
+  margin-top: 0 !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  border-top: 0 !important;
+  text-align: center !important;
+  color: #e9f4ff !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.rodape-base small {
+  color: inherit !important;
+}
