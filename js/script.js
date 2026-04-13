@@ -6,7 +6,6 @@ const WHATSAPP_MESSAGES = {
 };
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const hoverCapable = window.matchMedia("(hover: hover)").matches;
 
 function criaLinkWhats(tipo) {
   const mensagem = WHATSAPP_MESSAGES[tipo] || WHATSAPP_MESSAGES.infantil;
@@ -94,7 +93,7 @@ function animarContadores() {
 }
 
 const secaoConfianca = document.getElementById("confianca");
-if (secaoConfianca && "IntersectionObserver" in window) {
+if ("IntersectionObserver" in window) {
   const contadorObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -104,7 +103,7 @@ if (secaoConfianca && "IntersectionObserver" in window) {
     });
   }, { threshold: 0.25 });
   contadorObserver.observe(secaoConfianca);
-} else if (contadores.length) {
+} else {
   animarContadores();
 }
 
@@ -183,153 +182,6 @@ document.querySelectorAll(".faq-pergunta").forEach(botao => {
     if (!aberto) item.classList.add("ativo");
   });
 });
-
-const secaoOficinas = document.getElementById("oficinas-sucesso");
-const introOficinas = secaoOficinas?.querySelector(".oficinas-intro");
-const fotoOficinas = secaoOficinas?.querySelector(".oficinas-foto");
-const cardsOficinas = secaoOficinas ? Array.from(secaoOficinas.querySelectorAll(".oficina-item")) : [];
-const temasOficinas = [
-  {
-    borda: "#9ad8ff",
-    bordaSuave: "#ccecff",
-    titulo: "#0f5aa8",
-    brilho: "rgba(72, 190, 255, 0.16)",
-    cardBg: "linear-gradient(180deg, #ffffff 0%, #eefaff 100%)",
-    introBg: "linear-gradient(165deg, #ffffff 0%, #eef9ff 100%)",
-    iconeBg: "#dff5ff",
-    iconeColor: "#0f5aa8"
-  },
-  {
-    borda: "#ffd9a1",
-    bordaSuave: "#ffebc8",
-    titulo: "#9b5d00",
-    brilho: "rgba(255, 184, 71, 0.15)",
-    cardBg: "linear-gradient(180deg, #ffffff 0%, #fff6e8 100%)",
-    introBg: "linear-gradient(165deg, #ffffff 0%, #fff8ef 100%)",
-    iconeBg: "#fff0d7",
-    iconeColor: "#9b5d00"
-  },
-  {
-    borda: "#ffc9e2",
-    bordaSuave: "#ffe0ee",
-    titulo: "#a33a6f",
-    brilho: "rgba(255, 126, 181, 0.14)",
-    cardBg: "linear-gradient(180deg, #ffffff 0%, #fff1f7 100%)",
-    introBg: "linear-gradient(165deg, #ffffff 0%, #fff5f9 100%)",
-    iconeBg: "#ffe4ef",
-    iconeColor: "#a33a6f"
-  },
-  {
-    borda: "#cfdbff",
-    bordaSuave: "#e1e9ff",
-    titulo: "#3454b2",
-    brilho: "rgba(85, 115, 220, 0.14)",
-    cardBg: "linear-gradient(180deg, #ffffff 0%, #f1f5ff 100%)",
-    introBg: "linear-gradient(165deg, #ffffff 0%, #f4f7ff 100%)",
-    iconeBg: "#e8eeff",
-    iconeColor: "#3454b2"
-  }
-];
-let oficinaAtiva = 0;
-let oficinasTimer = null;
-
-function aplicaDestaqueOficinas(indice) {
-  if (!cardsOficinas.length) return;
-
-  oficinaAtiva = indice;
-  const temaAtual = temasOficinas[indice % temasOficinas.length];
-
-  cardsOficinas.forEach((card, idx) => {
-    const ativo = idx === indice;
-    const tema = temasOficinas[idx % temasOficinas.length];
-    const icone = card.querySelector("i");
-    const titulo = card.querySelector("strong");
-
-    card.style.transform = ativo ? "translateY(-4px)" : "translateY(0)";
-    card.style.borderColor = ativo ? tema.borda : "#dbeaff";
-    card.style.background = ativo ? tema.cardBg : "#ffffff";
-    card.style.boxShadow = ativo ? `0 14px 26px ${tema.brilho}` : "0 8px 18px rgba(10, 58, 130, 0.06)";
-
-    if (icone) {
-      icone.style.background = ativo ? tema.iconeBg : "#eaf4ff";
-      icone.style.color = ativo ? tema.iconeColor : "#1460b1";
-      icone.style.boxShadow = ativo ? `0 8px 14px ${tema.brilho}` : "none";
-    }
-
-    if (titulo) {
-      titulo.style.color = ativo ? tema.titulo : "#123f76";
-    }
-  });
-
-  if (introOficinas) {
-    introOficinas.style.borderColor = temaAtual.borda;
-    introOficinas.style.background = temaAtual.introBg;
-    introOficinas.style.boxShadow = `0 14px 24px ${temaAtual.brilho}`;
-  }
-
-  if (fotoOficinas) {
-    fotoOficinas.style.borderColor = temaAtual.bordaSuave;
-    fotoOficinas.style.boxShadow = `0 12px 22px ${temaAtual.brilho}`;
-  }
-}
-
-function iniciaAutoOficinas() {
-  if (reducedMotion || cardsOficinas.length < 2 || oficinasTimer) return;
-  oficinasTimer = setInterval(() => {
-    aplicaDestaqueOficinas((oficinaAtiva + 1) % cardsOficinas.length);
-  }, 3600);
-}
-
-function paraAutoOficinas() {
-  clearInterval(oficinasTimer);
-  oficinasTimer = null;
-}
-
-if (secaoOficinas && cardsOficinas.length) {
-  cardsOficinas.forEach(card => {
-    card.style.transition = "transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease";
-  });
-
-  if (introOficinas) {
-    introOficinas.style.transition = "box-shadow 220ms ease, border-color 220ms ease, background 220ms ease";
-  }
-
-  if (fotoOficinas) {
-    fotoOficinas.style.transition = "box-shadow 220ms ease, border-color 220ms ease";
-  }
-
-  cardsOficinas.forEach((card, idx) => {
-    if (hoverCapable) {
-      card.addEventListener("mouseenter", () => {
-        paraAutoOficinas();
-        aplicaDestaqueOficinas(idx);
-      });
-    }
-  });
-
-  aplicaDestaqueOficinas(0);
-
-  if (hoverCapable) {
-    secaoOficinas.addEventListener("mouseenter", paraAutoOficinas);
-    secaoOficinas.addEventListener("mouseleave", iniciaAutoOficinas);
-  }
-
-  if ("IntersectionObserver" in window) {
-    const observerOficinas = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          iniciaAutoOficinas();
-        } else {
-          paraAutoOficinas();
-        }
-      });
-    }, { threshold: 0.35 });
-
-    observerOficinas.observe(secaoOficinas);
-  } else {
-    iniciaAutoOficinas();
-  }
-}
 
 const preAtendimentoBtn = document.getElementById("preAtendimentoBtn");
 const campoNome = document.getElementById("nome");
