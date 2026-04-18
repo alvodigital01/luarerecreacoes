@@ -5,15 +5,43 @@ const WHATSAPP_MESSAGES = {
   resort: "OlÃƒÂ¡! Gostaria de uma proposta para recreaÃƒÂ§ÃƒÂ£o em hotel/resort. Cidade, perÃƒÂ­odo e estrutura: "
 };
 
+const WHATSAPP_MESSAGE_OVERRIDES = {
+  infantil: "Ol\u00e1! Quero um or\u00e7amento para recrea\u00e7\u00e3o infantil. Data, local e quantidade de crian\u00e7as: ",
+  brincadeiras: "Ol\u00e1! Quero levar esse clima de brincadeiras para a minha festa. Data, local, idade da turma e quantidade de crian\u00e7as: ",
+  oficinas: "Ol\u00e1! Quero um or\u00e7amento para as oficinas criativas da festa. Data, local, quantidade de crian\u00e7as e oficinas de interesse: ",
+  personalizada: "Ol\u00e1! Quero montar uma recrea\u00e7\u00e3o personalizada para a minha festa. Data, local, idade da turma e o que voc\u00ea sugere para esse momento: ",
+  corporativo: "Ol\u00e1! Quero um or\u00e7amento para um evento corporativo. Data, local e n\u00famero de participantes: ",
+  resort: "Ol\u00e1! Gostaria de uma proposta para recrea\u00e7\u00e3o em hotel ou resort. Cidade, per\u00edodo e estrutura dispon\u00edvel: "
+};
+
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function criaLinkWhats(tipo) {
-  const mensagem = WHATSAPP_MESSAGES[tipo] || WHATSAPP_MESSAGES.infantil;
+  const mensagem =
+    WHATSAPP_MESSAGE_OVERRIDES[tipo] ||
+    WHATSAPP_MESSAGES[tipo] ||
+    WHATSAPP_MESSAGE_OVERRIDES.infantil;
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(mensagem)}`;
 }
 
-document.querySelectorAll(".wa-link").forEach(link => {
+function resolveWhatsTipo(link) {
+  const texto = (link.textContent || "").toLowerCase();
   const tipo = link.dataset.wa || "infantil";
+  const tituloCard =
+    link.closest(".card")?.querySelector("h3")?.textContent?.toLowerCase() || "";
+
+  if (tituloCard.includes("brincadeiras")) return "brincadeiras";
+  if (tituloCard.includes("oficinas")) return "oficinas";
+  if (tituloCard.includes("momentos")) return "personalizada";
+  if (texto.includes("clima na festa")) return "brincadeiras";
+  if (texto.includes("oficinas")) return "oficinas";
+  if (texto.includes("montar minha recrea")) return "personalizada";
+
+  return tipo;
+}
+
+document.querySelectorAll(".wa-link").forEach(link => {
+  const tipo = resolveWhatsTipo(link);
   link.href = criaLinkWhats(tipo);
   link.target = "_blank";
   link.rel = "noopener noreferrer";
